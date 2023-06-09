@@ -19,6 +19,9 @@ def save_image(img):
 
 st.title('Template Matching')
 
+temp_image = None
+main_image = None
+
 temp_file_name = st.file_uploader("Choose a template image file", type=['jpg', 'png'])
 if temp_file_name is not None:
     temp_image = cv2.imread(temp_file_name.name)
