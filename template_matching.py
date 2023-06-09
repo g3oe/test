@@ -21,12 +21,12 @@ st.title('Template Matching')
 
 temp_file_name = st.file_uploader("Choose a template image file", type=['jpg', 'png'])
 if temp_file_name is not None:
-    temp_image = cv2.imread('./images/' + temp_file_name.name)
+    temp_image = cv2.imread(temp_file_name.name)
     st.image(temp_image, use_column_width=None, channels="BGR")
 
 main_file_name = st.file_uploader("Choose an image file", type=['jpg', 'png'])
 if main_file_name is not None:
-    main_image = cv2.imread('./images/' + main_file_name.name)
+    main_image = cv2.imread(main_file_name.name)
     st.image(main_image, use_column_width=None, channels="BGR")
 
 st.header('Result:')
