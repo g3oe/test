@@ -1,3 +1,3 @@
 streamlit
 opencv-python
-PIL
+Pillow
