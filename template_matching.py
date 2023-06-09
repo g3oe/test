@@ -31,7 +31,7 @@ if main_file_name is not None:
 
 st.header('Result:')
 res_info = st.text('Select all files!')
-if temp_file_name is not None and main_file_name is not None:
+if temp_image is not None and main_image is not None:
     temp_image_gray = cv2.cvtColor(temp_image, cv2.COLOR_BGR2GRAY)
     main_image_gray = cv2.cvtColor(main_image, cv2.COLOR_BGR2GRAY)
     result = cv2.matchTemplate(temp_image_gray, main_image_gray, cv2.TM_CCOEFF_NORMED)
