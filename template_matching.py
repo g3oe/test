@@ -3,6 +3,7 @@ import cv2
 import io
 import base64
 from PIL import Image
+import numpy as np
 
 def get_image_download_link(img, filename, text):
     buffered = io.BytesIO()
@@ -18,9 +19,6 @@ def save_image(img):
     return byte_im
 
 st.title('Template Matching')
-
-temp_image = None
-main_image = None
 
 temp_uploaded_file = st.file_uploader("Choose a template image file", type=['jpg', 'png'])
 if temp_uploaded_file is not None:
