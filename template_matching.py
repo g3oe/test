@@ -22,19 +22,21 @@ st.title('Template Matching')
 temp_image = None
 main_image = None
 
-temp_file_name = st.file_uploader("Choose a template image file", type=['jpg', 'png'])
-if temp_file_name is not None:
-    temp_image = cv2.imread(temp_file_name.name)
+temp_uploaded_file = st.file_uploader("Choose a template image file", type=['jpg', 'png'])
+if temp_uploaded_file is not None:
+    file_bytes = np.asarray(bytearray(temp_uploaded_file.read()), dtype=np.uint8)
+    temp_image = cv2.imdecode(file_bytes, 1)
     st.image(temp_image, use_column_width=None, channels="BGR")
 
-main_file_name = st.file_uploader("Choose an image file", type=['jpg', 'png'])
-if main_file_name is not None:
-    main_image = cv2.imread(main_file_name.name)
+main_uploaded_file = st.file_uploader("Choose an image file", type=['jpg', 'png'])
+if main_uploaded_file is not None:
+    file_bytes = np.asarray(bytearray(main_uploaded_file.read()), dtype=np.uint8)
+    main_image = cv2.imdecode(file_bytes, 1)
     st.image(main_image, use_column_width=None, channels="BGR")
 
 st.header('Result:')
 res_info = st.text('Select all files!')
-if temp_image is not None and main_image is not None:
+if temp_uploaded_file is not None and main_uploaded_file is not None:
     temp_image_gray = cv2.cvtColor(temp_image, cv2.COLOR_BGR2GRAY)
     main_image_gray = cv2.cvtColor(main_image, cv2.COLOR_BGR2GRAY)
     result = cv2.matchTemplate(temp_image_gray, main_image_gray, cv2.TM_CCOEFF_NORMED)
